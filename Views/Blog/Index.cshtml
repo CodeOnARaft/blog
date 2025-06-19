@@ -1,0 +1,77 @@
+@model JournalBlog.Models.PagedResult<JournalBlog.Models.BlogPost>
+@{
+    ViewData["Title"] = Model.CurrentPage == 1 ? "Latest Posts" : $"Posts - Page {Model.CurrentPage}";
+}
+
+<div class="journal-header">
+    <h1>@(Model.CurrentPage == 1 ? "Latest Posts" : $"Posts - Page {Model.CurrentPage}")</h1>
+</div>
+
+<div class="posts-container">
+    @if (Model.Items.Any())
+    {
+        @foreach (var post in Model.Items)
+        {
+            <article class="post-entry">
+                <div class="post-date">
+                    @post.Date.ToString("MMMM d, yyyy")
+                </div>
+                <h2 class="post-title">
+                    <a href="@Url.Action("Post", "Blog", new { date = post.Date.ToString("yyyyMMdd"), page = Model.CurrentPage })">
+                        @post.Title
+                    </a>
+                </h2>
+                <p class="post-summary">@post.Summary</p>
+                <div class="post-tags">
+                    @foreach (var tag in post.Tags)
+                    {
+                        <a href="@Url.Action("Tag", "Blog", new { tag = tag })" class="tag">@tag</a>
+                    }
+                </div>
+                <div class="post-divider"></div>
+            </article>
+        }
+
+        @if (Model.TotalPages > 1)
+        {
+            <div class="pagination">
+                @if (Model.HasPreviousPage)
+                {
+                    <a href="@Url.Action("Index", "Blog", new { page = Model.CurrentPage - 1 })" class="pagination-link pagination-prev">
+                        ← Previous
+                    </a>
+                }
+
+                <div class="pagination-pages">
+                    @for (int i = Math.Max(1, Model.CurrentPage - 2); i <= Math.Min(Model.TotalPages, Model.CurrentPage + 2); i++)
+                    {
+                        if (i == Model.CurrentPage)
+                        {
+                            <span class="pagination-current">@i</span>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index", "Blog", new { page = i })" class="pagination-link">@i</a>
+                        }
+                    }
+                </div>
+
+                @if (Model.HasNextPage)
+                {
+                    <a href="@Url.Action("Index", "Blog", new { page = Model.CurrentPage + 1 })" class="pagination-link pagination-next">
+                        Next →
+                    </a>
+                }
+            </div>
+
+            <div class="pagination-info">
+                <p>Page @Model.CurrentPage of @Model.TotalPages (@Model.TotalItems posts total)</p>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="no-posts">
+            <p>No posts yet. The journal awaits your first entry...</p>
+        </div>
+    }

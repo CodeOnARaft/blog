@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Thoughts on a raft</title>
+    <script type="importmap"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/themes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JournalBlog.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a class="journal-brand" asp-area="" asp-controller="Blog" asp-action="Index">Thoughts on a raft</a>
+                <p class="author-name">by CodeOnARaft</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-links">
+                    <li><a asp-area="" asp-controller="Blog" asp-action="Index">Blog</a></li>
+                    <li><a asp-area="" asp-controller="Blog" asp-action="About">About</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Floating Theme Selector -->
+    <div class="theme-floating-selector">
+        <button class="theme-floating-button" id="current-theme-button">
+            <span class="current-theme-icon">☀️</span>
+        </button>
+        <div class="theme-dropdown">
+            <div class="theme-option" data-theme="light">
+                <span class="theme-icon">☀️</span>
+                <span class="theme-name">Light</span>
+            </div>
+            <div class="theme-option" data-theme="dark">
+                <span class="theme-icon">🌙</span>
+                <span class="theme-name">Dark</span>
+            </div>
+            <div class="theme-option" data-theme="terminal">
+                <span class="theme-icon">💻</span>
+                <span class="theme-name">Terminal</span>
+            </div>
+            <div class="theme-option" data-theme="cyberpunk">
+                <span class="theme-icon">🌆</span>
+                <span class="theme-name">Cyberpunk</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="journal-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 - Thoughts on a raft</p>
+        </div>
+    </footer>
+    <script src="~/js/themes.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

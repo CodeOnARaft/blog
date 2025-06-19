@@ -1,0 +1,144 @@
+/* Theme Variables and Styles */
+
+/* Light Theme (Default) */
+:root,
+.theme-light {
+  --bg-primary: #fefefe;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #ecf0f1;
+  --text-primary: #2c3e50;
+  --text-secondary: #5d6d7e;
+  --text-muted: #7f8c8d;
+  --text-accent: #34495e;
+  --border-color: #ecf0f1;
+  --border-accent: #bdc3c7;
+  --link-color: #34495e;
+  --link-hover: #2c3e50;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-border: #ecf0f1;
+  --tag-bg: #ecf0f1;
+  --tag-color: #5d6d7e;
+  --tag-hover-bg: #d5dbdb;
+  --tag-hover-color: #34495e;
+  --pagination-bg: #2c3e50;
+  --pagination-color: white;
+  --pagination-border: #ecf0f1;
+  --pagination-hover-bg: #f8f9fa;
+  --pagination-hover-color: #2c3e50;
+}
+
+/* Dark Theme */
+.theme-dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #e8e8e8;
+  --text-secondary: #b8b8b8;
+  --text-muted: #888888;
+  --text-accent: #ffffff;
+  --border-color: #3a3a3a;
+  --border-accent: #555555;
+  --link-color: #ffffff;
+  --link-hover: #e8e8e8;
+  --sidebar-bg: #2d2d2d;
+  --sidebar-border: #3a3a3a;
+  --tag-bg: #3a3a3a;
+  --tag-color: #b8b8b8;
+  --tag-hover-bg: #555555;
+  --tag-hover-color: #ffffff;
+  --pagination-bg: #ffffff;
+  --pagination-color: #1a1a1a;
+  --pagination-border: #3a3a3a;
+  --pagination-hover-bg: #3a3a3a;
+  --pagination-hover-color: #ffffff;
+}
+
+/* Terminal Theme */
+.theme-terminal {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #00ff00;
+  --text-secondary: #00cc00;
+  --text-muted: #008800;
+  --text-accent: #00ff00;
+  --border-color: #00ff00;
+  --border-accent: #00cc00;
+  --link-color: #00ff00;
+  --link-hover: #00ffff;
+  --sidebar-bg: #1a1a1a;
+  --sidebar-border: #00ff00;
+  --tag-bg: #2a2a2a;
+  --tag-color: #00cc00;
+  --tag-hover-bg: #00ff00;
+  --tag-hover-color: #000000;
+  --pagination-bg: #00ff00;
+  --pagination-color: #000000;
+  --pagination-border: #00ff00;
+  --pagination-hover-bg: #2a2a2a;
+  --pagination-hover-color: #00ff00;
+}
+
+/* Cyberpunk Theme */
+.theme-cyberpunk {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a0f1a;
+  --bg-tertiary: #2a1a2a;
+  --text-primary: #ff00ff;
+  --text-secondary: #cc00cc;
+  --text-muted: #880088;
+  --text-accent: #00ffff;
+  --border-color: #ff00ff;
+  --border-accent: #00ffff;
+  --link-color: #ff00ff;
+  --link-hover: #00ffff;
+  --sidebar-bg: #1a0f1a;
+  --sidebar-border: #ff00ff;
+  --tag-bg: #2a1a2a;
+  --tag-color: #cc00cc;
+  --tag-hover-bg: #ff00ff;
+  --tag-hover-color: #0a0a0a;
+  --pagination-bg: #ff00ff;
+  --pagination-color: #0a0a0a;
+  --pagination-border: #ff00ff;
+  --pagination-hover-bg: #2a1a2a;
+  --pagination-hover-color: #ff00ff;
+}
+
+/* Terminal Theme Special Effects */
+.theme-terminal body {
+  font-family: 'Courier New', monospace;
+}
+
+.theme-terminal .journal-brand,
+.theme-terminal h1,
+.theme-terminal h2,
+.theme-terminal h3 {
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.theme-terminal .post-content {
+  font-family: 'Courier New', monospace;
+}
+
+/* Cyberpunk Theme Special Effects */
+.theme-cyberpunk .journal-brand,
+.theme-cyberpunk h1,
+.theme-cyberpunk h2,
+.theme-cyberpunk h3 {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+.theme-cyberpunk .tag:hover {
+  box-shadow: 0 0 10px var(--tag-hover-bg);
+}
+
+.theme-cyberpunk .pagination-link:hover {
+  box-shadow: 0 0 10px var(--link-color);
+}
+
+/* Theme Transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
